@@ -1,0 +1,213 @@
+[gd_scene load_steps=11 format=3 uid="uid://cnj0t3ad178q6"]
+
+[ext_resource type="Script" path="res://DemoPage/DemoPage.gd" id="1_4brsx"]
+[ext_resource type="Shader" path="res://DemoPage/Assets/BlurShader.gdshader" id="2_07raf"]
+[ext_resource type="FontFile" uid="uid://ch2aef1jex81f" path="res://DemoPage/Fonts/Montserrat-Bold.ttf" id="6_r37av"]
+[ext_resource type="FontFile" uid="uid://t50djx4didf7" path="res://DemoPage/Fonts/Montserrat-Medium.ttf" id="7_8vsh6"]
+[ext_resource type="Texture2D" uid="uid://tfus7d2ysvap" path="res://DemoPage/ControllerIcons/keyboard.png" id="10_uxdfh"]
+[ext_resource type="Texture2D" uid="uid://cwnhk6pv52ilv" path="res://DemoPage/ControllerIcons/gamepad.png" id="11_eh4lo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oq2x4"]
+shader = ExtResource("2_07raf")
+
+[sub_resource type="LabelSettings" id="LabelSettings_swl1q"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_y4f87"]
+line_spacing = 16.0
+font = ExtResource("6_r37av")
+font_size = 56
+
+[sub_resource type="LabelSettings" id="LabelSettings_g5g84"]
+line_spacing = 0.0
+font = ExtResource("7_8vsh6")
+font_size = 32
+
+[node name="DemoPage" type="Node"]
+process_mode = 3
+script = ExtResource("1_4brsx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="DemoPageRoot" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Blur" type="ColorRect" parent="CanvasLayer/DemoPageRoot"]
+material = SubResource("ShaderMaterial_oq2x4")
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.258824, 0.45098, 0.494118, 1)
+
+[node name="Content" type="VBoxContainer" parent="CanvasLayer/DemoPageRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -26.0
+offset_right = 22.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Control" parent="CanvasLayer/DemoPageRoot/Content"]
+modulate = Color(1, 1, 1, 0.54902)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+
+[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Title"]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 163.0
+offset_right = 1149.0
+offset_bottom = 194.0
+text = "DEMO"
+label_settings = SubResource("LabelSettings_swl1q")
+
+[node name="Content" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GameDescription" type="Control" parent="CanvasLayer/DemoPageRoot/Content/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = -53.0
+offset_right = -17.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 52
+
+[node name="ContentContainer" type="VBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "First Person Experience "
+label_settings = SubResource("LabelSettings_y4f87")
+
+[node name="Inspirations" type="RichTextLabel" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_r37av")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[color=#343434] Little [/color] · [color=#163c59] Investigator[/color]"
+
+[node name="DescriptionMargin" type="MarginContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 10
+
+[node name="Description" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/DescriptionMargin"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "A VR Experience where you find items that will tell an story of change.
+
+
+
+Miguel Angel Serrano Zumaya"
+label_settings = SubResource("LabelSettings_g5g84")
+autowrap_mode = 2
+
+[node name="ControlsDescription" type="Control" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ButtonContainer" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="KeyboardButton" type="Button" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 64)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("10_uxdfh")
+icon_alignment = 1
+expand_icon = true
+
+[node name="JoypadButton" type="Button" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 64)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("11_eh4lo")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MarginContainer" type="Control" parent="CanvasLayer/DemoPageRoot/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/MarginContainer"]
+layout_mode = 0
+anchor_left = 0.368
+anchor_top = 0.5
+anchor_right = 0.632
+anchor_bottom = 0.5
+offset_left = -0.559998
+offset_top = -44.5
+offset_right = 0.559937
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Resume" type="Button" parent="CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("6_r37av")
+theme_override_font_sizes/font_size = 26
+action_mode = 0
+text = "  Resume demo  "
+
+[node name="Exit" type="Button" parent="CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("6_r37av")
+theme_override_font_sizes/font_size = 26
+action_mode = 0
+text = "  Exit demo  "
