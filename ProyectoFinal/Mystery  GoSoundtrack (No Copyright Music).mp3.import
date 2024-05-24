@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1xamovjd5b7"
+path="res://.godot/imported/Mystery  GoSoundtrack (No Copyright Music).mp3-5ff7f1764a0e732b2b960627f4c0f9ec.mp3str"
+
+[deps]
+
+source_file="res://Mystery  GoSoundtrack (No Copyright Music).mp3"
+dest_files=["res://.godot/imported/Mystery  GoSoundtrack (No Copyright Music).mp3-5ff7f1764a0e732b2b960627f4c0f9ec.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
